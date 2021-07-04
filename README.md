@@ -15,7 +15,8 @@ When user clicks on the Generate Password button,
 they will then be prompted with different characters they 
 can have in the password and how long the password will be. 
 ```
-
+## Link
+https://jessangarcia.github.io/password-gen/
   
 ## Contributing
 
