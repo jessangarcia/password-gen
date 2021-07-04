@@ -16,7 +16,8 @@ function generatePassword(){
   var confirmLength = (prompt("How many characters would you like your password to contain?"));
   //if answer is outside parameters 
   while(confirmLength <= 7) {
-    alert("Password length must be 8 characters long")
+    alert("Password length must be 8 characters long");
+    var confirmLength = (prompt("How many characters would you like your password to contain?"));
   }
 
   //confirm password characters
@@ -32,23 +33,33 @@ function generatePassword(){
     var confirmLowerCase = confirm("Click OK to confirm if you would like to include lowercase characters");
     var confirmUpperCase = confirm("Click OK to confirm if you would like to include uppercase characters");
   }
+  //assign the characters 
+  var passwordCharacters = []
+  
+  if (confirmSymbol) {
+    passwordCharacters = passwordCharacters.concat(symbol)
+  }
+  if (confirmNumber) {
+    passwordCharacters = passwordCharacters.concat(number)
+  }
+  if (confirmLowerCase) {
+    passwordCharacters = passwordCharacters.concat(alphaLower)
+  }
+  if (confirmUpperCase) {
+    passwordCharacters = passwordCharacters.concat(alphaUpper)
+  }
+  console.log(passwordCharacters)
+  //selecting characters from arrays
+  var randomPassword = ""
+  
+  for (var i= 0; i < confirmLength; i++) {
+    randomPassword = randomPassword + passwordCharacters[Math.floor(Math.random() * passwordCharacters.length)];
+    console.log(randomPassword)
+  }
+  return randomPassword;
 }
-//assign the characters 
-var passwordCharacters = []
 
-if (confirmSymbol) {
-  passwordCharacters = passwordCharacters.concat(symbol)
-}
-if (confirmNumber) {
-  passwordCharacters = passwordCharacters.concat(number)
-}
-if (confirmLowerCase) {
-  passwordCharacters = passwordCharacters.concat(alphaLower)
-}
-if (confirmUpperCase) {
-  passwordCharacters = passwordCharacters.concat(alphaUpper)
-}
-console.log(passwordCharacters);
+
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
@@ -56,7 +67,7 @@ var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
 function writePassword() {
-  //var password = generatePassword();
+  var password = generatePassword();
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
