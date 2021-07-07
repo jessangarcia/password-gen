@@ -21,3 +21,4 @@ https://jessangarcia.github.io/password-gen/
 ## Contributing
 
 Starter code from https://github.com/coding-boot-camp/friendly-parakeet
+did find https://github.com/TiffanyCasey/Password-Generator for refrences and code.
